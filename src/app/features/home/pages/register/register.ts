@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-register',
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './register.html',
-  styleUrl: './register.scss'
+  styleUrl: './register.scss',
 })
 export class Register {
   private fb = inject(FormBuilder);
@@ -16,7 +16,7 @@ export class Register {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 

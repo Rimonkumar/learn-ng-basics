@@ -1,0 +1,61 @@
+<div class="container">
+  <h2>🛒 Product Management</h2>
+
+  <!-- Add/Edit Form -->
+  <div class="form-card">
+    <h3>{{ editingId() ? '📝 Edit Product' : '➕ Add New Product' }}</h3>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" formControlName="name" placeholder="Product Name" />
+        <input type="number" formControlName="price" placeholder="Price" />
+        <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
+          {{ editingId() ? 'Update' : 'Add' }}
+        </button>
+        <button type="button" class="btn" *ngIf="editingId()" (click)="cancelEdit()">Cancel</button>
+      </div>
+      <div
+        *ngIf="productForm.get('name')?.touched && productForm.get('name')?.invalid"
+        style="color: red; font-size: 12px; margin-top: 5px"
+      >
+        Name is required (min 3 chars).
+      </div>
+    </form>
+  </div>
+
+  <!-- Search Filter -->
+  <input
+    type="text"
+    class="search-box"
+    placeholder="🔍 Search products by name..."
+    [value]="searchTerm()"
+    (input)="updateSearch($event)"
+  />
+
+  <!-- Product Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of filteredProducts()">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | price }}</td>
+        <td>
+          <button class="btn btn-edit" (click)="editProduct(product)">Edit</button>
+          <button class="btn btn-delete" (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
+      <tr *ngIf="filteredProducts().length === 0">
+        <td colspan="4" style="text-align: center; padding: 2rem; color: #64748b">
+          No products found.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
