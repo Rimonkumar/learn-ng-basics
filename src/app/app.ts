@@ -5,13 +5,8 @@ import { RouterOutlet, RouterLink } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('learn-ng-basics');
-
-  
-
-
-
 }

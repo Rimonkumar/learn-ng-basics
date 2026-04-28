@@ -1,28 +1,85 @@
-<div class="contact-container" style="max-width: 400px; margin: 20px auto; padding: 24px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: white;">
-  <h2 style="color: #1e293b; margin-bottom: 20px;">Contact Us (Template)</h2>
+<div
+  class="contact-container"
+  style="
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+  "
+>
+  <h2 style="color: #1e293b; margin-bottom: 20px">Contact Us (Template)</h2>
   <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
-    <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 4px; font-weight: 500;">Name:</label>
-      <input type="text" name="name" [(ngModel)]="contact.name" required minlength="2" #name="ngModel" 
-             style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px;">
-      <div *ngIf="name.invalid && name.touched" style="color: #ef4444; font-size: 13px; margin-top: 4px;">Name is required (min 2 chars).</div>
+    <div style="margin-bottom: 16px">
+      <label style="display: block; margin-bottom: 4px; font-weight: 500">Name:</label>
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="contact.name"
+        required
+        minlength="2"
+        #name="ngModel"
+        style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px"
+      />
+      <div
+        *ngIf="name.invalid && name.touched"
+        style="color: #ef4444; font-size: 13px; margin-top: 4px"
+      >
+        Name is required (min 2 chars).
+      </div>
     </div>
 
-    <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 4px; font-weight: 500;">Email:</label>
-      <input type="email" name="email" [(ngModel)]="contact.email" required email #email="ngModel" 
-             style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px;">
-      <div *ngIf="email.invalid && email.touched" style="color: #ef4444; font-size: 13px; margin-top: 4px;">Valid email is required.</div>
+    <div style="margin-bottom: 16px">
+      <label style="display: block; margin-bottom: 4px; font-weight: 500">Email:</label>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="contact.email"
+        required
+        email
+        #email="ngModel"
+        style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px"
+      />
+      <div
+        *ngIf="email.invalid && email.touched"
+        style="color: #ef4444; font-size: 13px; margin-top: 4px"
+      >
+        Valid email is required.
+      </div>
     </div>
 
-    <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 4px; font-weight: 500;">Message:</label>
-      <textarea name="message" [(ngModel)]="contact.message" required #msg="ngModel" 
-                style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; min-height: 100px;"></textarea>
+    <div style="margin-bottom: 16px">
+      <label style="display: block; margin-bottom: 4px; font-weight: 500">Message:</label>
+      <textarea
+        name="message"
+        [(ngModel)]="contact.message"
+        required
+        #msg="ngModel"
+        style="
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #cbd5e1;
+          border-radius: 6px;
+          min-height: 100px;
+        "
+      ></textarea>
     </div>
 
-    <button type="submit" [disabled]="contactForm.invalid" 
-            style="width: 100%; padding: 12px; background: #3b82f6; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">
+    <button
+      type="submit"
+      [disabled]="contactForm.invalid"
+      style="
+        width: 100%;
+        padding: 12px;
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+      "
+    >
       Send Message
     </button>
   </form>

@@ -6,13 +6,13 @@ import { CommonModule } from '@angular/common';
   selector: 'app-contact',
   imports: [FormsModule, CommonModule],
   templateUrl: './contact.html',
-  styleUrl: './contact.scss'
+  styleUrl: './contact.scss',
 })
 export class Contact {
   contact = {
     name: '',
     email: '',
-    message: ''
+    message: '',
   };
 
   onSubmit() {

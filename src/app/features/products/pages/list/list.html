@@ -1,22 +1,68 @@
-<div class="products-container" style="max-width: 600px; margin: 20px auto; padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: white;">
-  <h2 style="color: #1e293b; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; margin-bottom: 20px;">Product List</h2>
-  
-  <ul *ngIf="products$ | async as products; else loading" style="list-style: none; padding: 0; margin: 0;">
-    <li *ngFor="let product of products" 
-        style="padding: 16px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s;"
-        onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <div style="width: 40px; height: 40px; background: #e0f2fe; color: #0369a1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+<div
+  class="products-container"
+  style="
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background: white;
+  "
+>
+  <h2
+    style="
+      color: #1e293b;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    "
+  >
+    Product List
+  </h2>
+
+  <ul
+    *ngIf="products$ | async as products; else loading"
+    style="list-style: none; padding: 0; margin: 0"
+  >
+    <li
+      *ngFor="let product of products"
+      style="
+        padding: 16px;
+        border-bottom: 1px solid #f1f5f9;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+      "
+      onmouseover="this.style.background = '#f8fafc'"
+      onmouseout="this.style.background = 'white'"
+    >
+      <div style="display: flex; align-items: center; gap: 12px">
+        <div
+          style="
+            width: 40px;
+            height: 40px;
+            background: #e0f2fe;
+            color: #0369a1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+          "
+        >
           {{ product.id }}
         </div>
-        <span style="font-weight: 500; color: #334155; font-size: 16px;">{{ product.name }}</span>
+        <span style="font-weight: 500; color: #334155; font-size: 16px">{{ product.name }}</span>
       </div>
-      <span style="color: #059669; font-weight: 700; font-size: 16px;">{{ product.price | currency:'BDT ':'code':'1.0-0' }}</span>
+      <span style="color: #059669; font-weight: 700; font-size: 16px">{{
+        product.price | currency: 'BDT ' : 'code' : '1.0-0'
+      }}</span>
     </li>
   </ul>
 
   <ng-template #loading>
-    <div style="text-align: center; padding: 40px; color: #64748b;">
+    <div style="text-align: center; padding: 40px; color: #64748b">
       <p>Loading products...</p>
     </div>
   </ng-template>

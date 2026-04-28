@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   selector: 'app-list',
   imports: [CommonModule],
   templateUrl: './list.html',
-  styleUrl: './list.scss'
+  styleUrl: './list.scss',
 })
 export class List {
   products$: Observable<Product[]>;
